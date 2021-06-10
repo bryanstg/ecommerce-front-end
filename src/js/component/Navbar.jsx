@@ -9,17 +9,13 @@ export const Navbar = () => {
 				<div className="collapse" id="navbarToggleExternalContent">
 					<ul className="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li className="nav-item active">
-							<Link to="/login">
-								<a className="nav-link" href="#">
-									Iniciar Sesion
-								</a>
+							<Link to="/login" className="nav-link" href="#">
+								Iniciar Sesion
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link to="/signup">
-								<a className="nav-link" href="#">
-									Regístrate
-								</a>
+							<Link to="/signup" className="nav-link" href="#">
+								Regístrate
 							</Link>
 						</li>
 						<li className="nav-item">
@@ -41,22 +37,16 @@ export const Navbar = () => {
 					aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon" />
 				</button>
-				<Link to="/">
-					<a className="brand-name navbar-brand" href="#">
-						eCommerce
-					</a>
+				<Link to="/" className="brand-name navbar-brand" href="#">
+					eCommerce
 				</Link>
 				<div className="sign-bar">
-					<Link to="/login">
-						<a className={`btn signup-btn d-none d-md-inline-block`} href="#">
-							Regístrate
-						</a>
+					<Link to="/login" className={`btn signup-btn d-none d-md-inline-block`} href="#">
+						Regístrate
 					</Link>
-					<Link to="/car">
-						<a className="car-icon">
-							<img src={shoppingCar} alt="" className="car-icon__logo" />
-							<span className="car-icon__counter ">0</span>
-						</a>
+					<Link to="/car" className="car-icon">
+						<img src={shoppingCar} alt="" className="car-icon__logo" />
+						<span className="car-icon__counter ">0</span>
 					</Link>
 				</div>
 			</nav>

@@ -1,56 +1,63 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import shoppingCar from "./../../img/svg/carrito-compras.png";
 
 export const Navbar = () => {
 	return (
 		<React.Fragment>
-			<nav className="navbar navbar-light bg-light mb-3">
-				<div className="ml-auto">
-					<Link to="/demo">
-						<span className="">Car
-							<img src="" alt="" />
-						</span>
-					</Link>
-				</div>
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">eCommerce</span>
-				</Link>
-			</nav>
-
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<div className="container-fluid">
-					<a className="navbar-brand" href="#">
-						Navbar
-					</a>
-					<button
-						className="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarTogglerDemo02"
-						aria-controls="navbarTogglerDemo02"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon" />
-					</button>
-					<div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-							<li className="nav-item">
-								<a className="nav-link active" aria-current="page" href="#">
-									Home
-								</a>
-							</li>
-							<li className="nav-item">
+			<div className="pos-f-t">
+				<div className="collapse" id="navbarToggleExternalContent">
+					<ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li className="nav-item active">
+							<Link to="/login">
 								<a className="nav-link" href="#">
-									Link
+									Iniciar Sesion
 								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link " href="#" tabIndex="-1" aria-disabled="true">
-									Disabled
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link to="/signup">
+								<a className="nav-link" href="#">
+									Regístrate
 								</a>
-							</li>
-						</ul>
-					</div>
+							</Link>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#categorias">
+								Categorías
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<nav className="navbar barra navbar-light bg-light px-2 py-0 pt-2">
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarToggleExternalContent"
+					aria-controls="navbarToggleExternalContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon" />
+				</button>
+				<Link to="/">
+					<a className="brand-name navbar-brand" href="#">
+						eCommerce
+					</a>
+				</Link>
+				<div className="sign-bar">
+					<Link to="/login">
+						<a className={`btn signup-btn d-none d-md-inline-block`} href="#">
+							Regístrate
+						</a>
+					</Link>
+					<Link to="/car">
+						<a className="car-icon">
+							<img src={shoppingCar} alt="" className="car-icon__logo" />
+							<span className="car-icon__counter ">0</span>
+						</a>
+					</Link>
 				</div>
 			</nav>
 		</React.Fragment>

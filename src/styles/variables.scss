@@ -1,0 +1,34 @@
+
+/* ---------Colores---------------*/
+/*Colores principales*/
+
+$base-verde: #86FB7C;
+$base-amarillo: #DBFA6E;
+$base-gris: #8B8787;
+$base-negro: #242424;
+
+/*Colores secundarios*/
+
+$secundario-morado: #C587E4;
+$secundario-rojo: #FA7261;
+$secundario-azul: #87FAC0;
+
+
+/*-------------Fuentes--------------*/
+/*Titulos*/
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/*---- Uso: font-family: 'Merriweather', serif;*/
+
+$fuente-titulos: 'Merriweather', serif;
+
+/*Párrafos*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+/*----- Uso: font-family: 'Source Sans Pro', sans-serif;*/
+
+$fuente-parrafo: 'Source Sans Pro', sans-serif;
+
+

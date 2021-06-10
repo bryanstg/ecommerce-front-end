@@ -1,3 +1,16 @@
 /* 
     General Styles
 */
+@import './components/NavBar';
+@import './variables.scss';
+@import './components/SignUpBtn';
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fuente-parrafo;
+}

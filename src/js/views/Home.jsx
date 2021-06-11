@@ -4,7 +4,7 @@ import MainView from "./../../img/mobile-mainview.png";
 
 export const Home = () => {
 	return (
-		<div className="container-fluid vw-100 vh-100">
+		<div className="container-fluid vw-100 vh-auto">
 			<div className="main-view pb-3 px-2">
 				<div className="main-view__text">
 					<h1 className="main-view__text--title">

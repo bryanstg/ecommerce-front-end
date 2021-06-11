@@ -1,22 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MainView from "./../../img/mobile-mainview.png";
 
 export const Home = () => {
 	return (
-		<div className="container vw-100 vh-100">
-			<div className="call-to-action d-flex flex-column align-items-center justify-content-center">
-				<Link to="/login">
-					<a className={`btn signup-btn`} href="#">
-						Regístrate
-					</a>
-				</Link>
-				<div>
-					<p className="call-to-action__p d-flex flex-column align-items-center">
-						<span>o</span>
-						<span>continúa</span>
-						<span>comprando</span>
+		<div className="container-fluid vw-100 vh-100">
+			<div className="main-view pb-3 px-2">
+				<div className="main-view__text">
+					<h1 className="main-view__text--title">
+						<span className="main-view__text--title-first">LOREM</span>
+						<br />
+						<span className="main-view__text--title-second">IPSUM</span>
+					</h1>
+					<p className="main-view__text--paragraph">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur
+						adipisicing elit.
 					</p>
-					<img className="call-to-action__img" src="" alt="" />
+				</div>
+				<div className="call-to-action">
+					<Link to="/login" className={`btn signup-btn`} href="#">
+						Regístrate
+					</Link>
+					<div className="d-flex flex-column justify-content-center align-items-center">
+						<p className="call-to-action__p d-flex flex-column align-items-center">
+							<span>o</span>
+							<span>continúa comprando</span>
+						</p>
+						<i className="fas fa-chevron-down" />
+					</div>
+				</div>
+				<div className="main-view__design">
+					<img src={MainView} className="main-view__design--mobile" alt="" />
 				</div>
 			</div>
 		</div>

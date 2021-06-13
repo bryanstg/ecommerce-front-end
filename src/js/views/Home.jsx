@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainView from "./../../img/mobile-mainview.png";
+import { Categories } from "../component/Categories.jsx";
 
 export const Home = () => {
 	return (
@@ -33,6 +34,7 @@ export const Home = () => {
 					<img src={MainView} className="main-view__design--mobile" alt="" />
 				</div>
 			</div>
+			<Categories />
 		</div>
 	);
 };

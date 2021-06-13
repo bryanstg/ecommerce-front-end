@@ -1,20 +1,21 @@
 import React from "react";
-import Broccoli from "./../../img/svg/broccoli.png";
+import Vegetales from "./../../img/svg/broccoli.png";
+import Frutas from "./../../img/svg/manzana.png";
+import Tiendas from "./../../img/svg/tiendas.png";
+import Dulces from "./../../img/svg/dulce.png";
+import Licores from "./../../img/svg/licor.png";
+import Ubicación from "./../../img/svg/ubicacion.png";
+
 import PropTypes from "prop-types";
+const img = [Vegetales, Frutas, Tiendas, Dulces, Ubicación, Licores];
 
 export const Category = props => {
-	if (props.category == "Tiendas") {
-		console.log(props.category);
-	}
-	if (props.category == "Ubicación") {
-		console.log(props.category);
-	}
 	return (
 		<div
 			className={`
                 category
-                ${props.category == "Ubicación" ? "large" : ""}
-                ${props.category == "Tiendas" ? "large" : ""}
+                ${props.category == "Ubicación" ? "shadow" : ""}
+                ${props.category == "Tiendas" ? "shadow" : ""}
             `}
 			style={
 				props.category == "Tiendas"
@@ -26,12 +27,17 @@ export const Category = props => {
 			<div className={`category__logo`}>
 				<div
 					className={`
-                        category__logo--img
-                        ${props.category == "Ubicación" ? "" : props.category == "Tiendas" ? "" : "shadow"}
+                        ${
+							props.category == "Ubicación"
+								? ""
+								: props.category == "Tiendas"
+									? ""
+									: "shadow category__logo--img"
+						}
                         
                     `}
 					style={{ backgroundColor: props.color }}>
-					<img src={Broccoli} alt="" width="60" />
+					<img src={Tiendas} alt="" width="60" />
 				</div>
 			</div>
 			<div className={`category__info`}>

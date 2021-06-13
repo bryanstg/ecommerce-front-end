@@ -41,7 +41,7 @@ export const Navbar = () => {
 					eCommerce
 				</Link>
 				<div className="sign-bar">
-					<Link to="/login" className={`btn signup-btn d-none d-md-inline-block`} href="#">
+					<Link to="/signup" className={`btn signup-btn d-none d-md-inline-block`} href="#">
 						Regístrate
 					</Link>
 					<Link to="/car" className="car-icon">

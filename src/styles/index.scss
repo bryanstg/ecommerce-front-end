@@ -1,13 +1,12 @@
-/* 
-    General Styles
-*/
 @import './variables.scss';
 @import './components/NavBar';
-@import './views/Home';
 @import './components/SignUpBtn';
 @import './components/Footer';
 @import './components/Category';
 @import './components/Categories';
+
+@import './views/Home';
+@import './views/Login';
 
 *, *::after, *::before {
     margin: 0;

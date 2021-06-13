@@ -1,0 +1,97 @@
+@import "../variables.scss";
+
+.form-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 17.5rem;
+    height: 29.375rem;
+    padding: 1.5rem;
+
+    background: linear-gradient(0deg, rgba(100, 97, 97, 0.26), rgba(100, 97, 97, 0.26)), linear-gradient(359.03deg, #DBFA6E 25.21%, rgba(255, 255, 255, 0) 91.38%), #86FB7C;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+.form__title {
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+    h2 {
+        font-family: $fuente-parrafo;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.25rem;
+        line-height: 1.437rem;
+        color: #fff;
+    }
+}
+.form__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    width: 100%;
+    height: 70%;
+}
+.form__info--inputs {
+    width: 12.32rem;
+    p {
+        font-size: 0.7rem;
+        color: #FFF;
+    }
+
+}
+.input__field {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #FFF;
+
+    font-family: $fuente-parrafo;
+    font-weight: 400;
+    font-size: 1rem;
+    background: transparent;
+    outline: 0;
+
+    padding: 0.3rem 1rem;
+    color: #FFF;
+
+    &::placeholder {
+        color: #FFF;
+    }
+}
+.input__field:focus {
+    &::placeholder {
+        font-size: 1.05rem;
+        font-weight: 500;
+    }
+}
+.form__send {
+    width: 12.32rem;
+    height: auto;
+}
+.form__send--button > a:hover, a:visited, a:link, a:active {
+ text-decoration: none;
+}
+.form__sign {
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    p {
+        margin: 0;
+    }
+    a {
+        color: $base-gris;
+        font-weight: 600;
+    }
+}

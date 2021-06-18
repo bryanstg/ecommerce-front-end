@@ -1,0 +1,50 @@
+@import './../variables.scss';
+
+.store-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+}
+.store {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    min-height: 85vh;
+    height: auto;
+}
+.store__title {
+    color: $base-negro;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.store__info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-width: 15rem;
+    width: 18rem;
+    height: auto;
+}
+.store__info--box {
+    background-color: $base-gris;
+    font-size: 1.15rem;
+    color: #FFF;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    &:hover {
+        color: #FFF;
+        font-weight: 600;
+    }
+}

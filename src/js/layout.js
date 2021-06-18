@@ -8,6 +8,8 @@ import { Single } from "./views/single";
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/Footer.jsx";
 import { Login } from "./views/Login.jsx";
+import { BuyerStore } from "./views/BuyerStore.jsx";
+import { AddProduct } from "./views/AddProduct.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -35,8 +37,11 @@ const Layout = () => {
 						<Route exact path="/signup">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/:store_id">
+							<BuyerStore />
+						</Route>
+						<Route exact path="/:store_id/add-product">
+							<AddProduct />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

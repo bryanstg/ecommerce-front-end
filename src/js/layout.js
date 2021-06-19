@@ -8,6 +8,8 @@ import { Single } from "./views/single";
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/Footer.jsx";
 import { Login } from "./views/Login.jsx";
+import { Formsell } from "./views/formsell.jsx";
+import { Formbuy } from "./views/formbuy.jsx";
 import { BuyerStore } from "./views/BuyerStore.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 
@@ -36,6 +38,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/signup">
 							<Demo />
+						</Route>
+						<Route exact path="/formsell">
+							<Formsell />
+						</Route>
+						<Route exact path="/formbuy">
+							<Formbuy />
+						</Route>
+						<Route exact path="/single/:theid">
+							<Single />
 						</Route>
 						<Route exact path="/:store_id">
 							<BuyerStore />

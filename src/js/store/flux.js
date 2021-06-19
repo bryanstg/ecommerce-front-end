@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	const API_URI = "http://192.168.0.3:3000";
+	const API_URI = "http://127.0.0.1:3000";
 	return {
 		store: {
 			demo: [
@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			buyer: {
 				user: {},
+				categories: [],
 				storeData: {
 					info: {},
 					products: []
@@ -73,6 +74,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 									...store.buyer.storeData,
 									products: [...data.products]
 								}
+							}
+						});
+					});
+			},
+			createProduct: async ({
+				name,
+				description,
+				price,
+				amountAvailable,
+				imgUrl,
+				categoryId,
+				activateProduct
+			}) => {
+				const store = getStore();
+				const actions = getActions();
+				try {
+					const newProduct = {
+						name: name,
+						description: description,
+						price: price,
+						amount_available: amountAvailable,
+						active: activateProduct,
+						img_url: imgUrl,
+						category_id: categoryId
+					};
+					console.log(name);
+					console.log(newProduct);
+					const create = await fetch(`${API_URI}/stores/${store.buyer.storeData.info.id}/new-product`, {
+						method: "POST",
+						body: JSON.stringify(newProduct),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (create.ok) {
+						const updateProducts = await actions.getProducts(store.buyer.storeData.info.id);
+						return true;
+					} else {
+						throw new Error("Error, can't create the product.");
+					}
+				} catch (error) {
+					console.log(error);
+					return false;
+				}
+			},
+			getCategories: () => {
+				fetch(`${API_URI}/categories`)
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+					})
+					.then(data => {
+						const store = getStore();
+
+						setStore({
+							buyer: {
+								...store.buyer,
+								categories: [...data.categories]
 							}
 						});
 					});

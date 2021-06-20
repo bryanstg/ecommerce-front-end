@@ -8,7 +8,7 @@ import { Footer } from "./component/Footer.jsx";
 import { Login } from "./views/Login.jsx";
 import { Formsell } from "./views/formsell.jsx";
 import { Formbuy } from "./views/formbuy.jsx";
-import { BuyerStore } from "./views/BuyerStore.jsx";
+import { SellerStore } from "./views/SellerStore.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 import { ProductManagement } from "./views/ProductManagement.jsx";
 
@@ -42,7 +42,7 @@ const Layout = () => {
 							<Formbuy />
 						</Route>
 						<Route exact path="/:store_id">
-							<BuyerStore />
+							<SellerStore />
 						</Route>
 						<Route exact path="/:store_id/add-product">
 							<AddProduct />

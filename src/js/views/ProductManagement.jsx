@@ -14,15 +14,15 @@ export const ProductManagement = () => {
 
 	let products;
 	if (params.type === "sin-stock") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.amount_available == 0;
 		});
 	} else if (params.type === "inactivos") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.active === false && product.amount_available > 0;
 		});
 	} else if (params.type === "activos") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.active === true && product.amount_available > 0;
 		});
 	} else {

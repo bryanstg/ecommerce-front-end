@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const API_URI = "http://127.0.0.1:3000";
 	return {
 		store: {
-			buyer: {
+			seller: {
 				user: {},
 				categories: [],
 				storeData: {
@@ -33,10 +33,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const store = getStore();
 						const actions = getActions();
 						setStore({
-							buyer: {
-								...store.buyer,
+							seller: {
+								...store.seller,
 								storeData: {
-									...store.buyer.storeData,
+									...store.seller.storeData,
 									info: {
 										...data.store
 									}
@@ -55,10 +55,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						const store = getStore();
 						setStore({
-							buyer: {
-								...store.buyer,
+							seller: {
+								...store.seller,
 								storeData: {
-									...store.buyer.storeData,
+									...store.seller.storeData,
 									products: [...data.products]
 								}
 							}
@@ -86,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img_url: imgUrl,
 						category_id: categoryId
 					};
-					const create = await fetch(`${API_URI}/stores/${store.buyer.storeData.info.id}/new-product`, {
+					const create = await fetch(`${API_URI}/stores/${store.seller.storeData.info.id}/new-product`, {
 						method: "POST",
 						body: JSON.stringify(newProduct),
 						headers: {
@@ -95,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 
 					if (create.ok) {
-						const updateProducts = await actions.getProducts(store.buyer.storeData.info.id);
+						const updateProducts = await actions.getProducts(store.seller.storeData.info.id);
 						return true;
 					} else {
 						throw new Error("Error, can't create the product.");
@@ -115,8 +115,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const store = getStore();
 
 						setStore({
-							buyer: {
-								...store.buyer,
+							seller: {
+								...store.seller,
 								categories: [...data.categories]
 							}
 						});

@@ -9,15 +9,15 @@ export const Products = ({ type }) => {
 	const history = useHistory();
 	let products;
 	if (type === "sin stock") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.amount_available == 0;
 		});
 	} else if (type === "inactivos") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.active === false && product.amount_available > 0;
 		});
 	} else if (type === "activos") {
-		products = store.buyer.storeData.products.filter(product => {
+		products = store.seller.storeData.products.filter(product => {
 			return product.active === true && product.amount_available > 0;
 		});
 	} else {
@@ -34,9 +34,9 @@ export const Products = ({ type }) => {
 							onClick={event => {
 								const stock = "sin-stock";
 								if (type !== "sin stock") {
-									history.push(`/${store.buyer.storeData.info.id}/products/${type}`);
+									history.push(`/${store.seller.storeData.info.id}/products/${type}`);
 								} else {
-									history.push(`/${store.buyer.storeData.info.id}/products/${stock}`);
+									history.push(`/${store.seller.storeData.info.id}/products/${stock}`);
 								}
 							}}>
 							ver todos...

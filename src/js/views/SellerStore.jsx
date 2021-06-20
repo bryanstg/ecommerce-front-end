@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Products } from "../component/Products.jsx";
 
-export const BuyerStore = () => {
+export const SellerStore = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const history = useHistory();
@@ -13,14 +13,14 @@ export const BuyerStore = () => {
 		actions.getProducts(params.store_id);
 	}, []);
 
-	const activeProducts = store.buyer.storeData.products.filter(product => {
+	const activeProducts = store.seller.storeData.products.filter(product => {
 		if (product.active && product.amount_available > 0) {
 			return true;
 		} else {
 			return false;
 		}
 	});
-	const inactiveProducts = store.buyer.storeData.products.filter(product => {
+	const inactiveProducts = store.seller.storeData.products.filter(product => {
 		if (!product.active && product.amount_available > 0) {
 			return true;
 		} else {
@@ -28,16 +28,16 @@ export const BuyerStore = () => {
 		}
 	});
 
-	const outStock = store.buyer.storeData.products.filter(product => product.amount_available === 0);
+	const outStock = store.seller.storeData.products.filter(product => product.amount_available === 0);
 	return (
 		<div className="store-container">
-			{store.buyer.storeData.info.id ? (
+			{store.seller.storeData.info.id ? (
 				<div className="store">
-					<h2 className="store__title">{store.buyer.storeData.info.name}</h2>
+					<h2 className="store__title">{store.seller.storeData.info.name}</h2>
 					<div className="store__info">
 						<a href="" className="store__info--box">
 							{`Total`}
-							<span id="total-box">{store.buyer.storeData.info.id_products.quantity}</span>
+							<span id="total-box">{store.seller.storeData.info.id_products.quantity}</span>
 						</a>
 						<a href="#active" className="store__info--box">
 							{`Activos`} <span id="active-box">{activeProducts.length}</span>

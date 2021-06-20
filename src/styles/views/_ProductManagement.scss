@@ -1,0 +1,31 @@
+@import './../variables.scss';
+
+.product-management {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 85vh;
+    height: auto;
+    margin: 1rem 0;
+}
+.product-management__title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: $base-negro;
+    font-weight: 600;
+}
+.product-management__products {
+    display: flex;
+    margin: 3rem 1rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 720px) {
+    .product-management__products {
+        justify-content: flex-start;
+    }
+}

@@ -41,3 +41,13 @@
         font-weight: 600;
     }
 }
+.add-product__btn {
+    color: #FFF;
+    font-weight: 600;
+    border: 0;
+    background:  linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    &:hover {
+        color: #FFF;
+        background: rgba(49, 49, 49, 0.705);
+    }
+}

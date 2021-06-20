@@ -1,0 +1,60 @@
+@import './../variables.scss';
+
+.products--box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+    height: auto;
+    width: 100%;
+}
+.products__title {
+    width: 100%;
+    text-align: start;
+    h3 {
+        width: 100%;
+        font-family: $fuente-parrafo;
+        font-size: 1.3rem;
+        color: $base-negro;
+        font-weight: 600;
+        
+        a {
+            font-size: 1rem;
+            color: $base-gris;
+            margin: 0 1rem;
+        }
+    }
+}
+.products__element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@media only screen and (min-width: 848px) {
+    .products--box {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .products {
+        align-items: flex-start;
+        width: 100;
+    }
+    .products__element {
+        justify-content: start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+}

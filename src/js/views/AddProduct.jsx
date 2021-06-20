@@ -139,15 +139,12 @@ export const AddProduct = () => {
 									categoryId == "" ||
 									activateProduct == null
 								) {
-									console.log("ingresé");
-
 									return swal(
 										"Intenta nuevamente",
-										"Todos los campos son requeridos y los debes llenar correctamente",
+										"	Todos los campos son requeridos y los debes llenar correctamente",
 										"info"
 									);
 								} else {
-									console.log(name);
 									success = await actions.createProduct({
 										name,
 										description,

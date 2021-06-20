@@ -5,13 +5,17 @@
 @import './components/Category';
 @import './components/Categories';
 @import './components/AddProductBtn';
+@import './components/Products';
+@import './components/Product';
 
 @import './views/Home';
 @import './views/Login';
 @import './views/Formsell';
 @import './views/Formbuy';
 @import './views/BuyerStore';
-@import './views/AddProduct';
+@import './views/AddProductForm';
+@import './views/ProductManagement';
+
 
 *, *::after, *::before {
     margin: 0;

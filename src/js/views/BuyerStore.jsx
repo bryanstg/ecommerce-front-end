@@ -55,7 +55,7 @@ export const BuyerStore = () => {
 							onClick={event => {
 								history.push(`/:${params.store_id}/add-product`);
 							}}>
-							<i className="far fa-plus-square" />
+							<i className="far fa-plus-square fa-2x" />
 						</button>
 					</div>
 					<div id="active" className="store__active">{`active`}</div>

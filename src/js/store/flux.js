@@ -21,6 +21,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+			signupSeller: async (
+				companyName,
+				identificationNumber,
+				cellphoneNumber,
+				storeName,
+				storeDescription,
+				email,
+				password
+			) => {
+				//Sigup a new seller
+				try {
+					const create = await fetch(`${API_URI}/signup-seller`, {
+						method: "POST",
+						body: JSON.stringify({
+							company_name: companyName,
+							identification_number: identificationNumber,
+							cellphone_number: cellphoneNumber,
+							name: storeName,
+							description: storeDescription,
+							email: email,
+							password: password
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (create.ok) {
+						return true;
+					} else {
+						throw new Error("Ocurrió un problema al crear");
+					}
+				} catch (error) {
+					return false;
+				}
+			},
 			getStore: store_id => {
 				//Get a Store by id
 				fetch(`${API_URI}/stores/${store_id}`)

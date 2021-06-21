@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, getActions, setStore, setActions }) => {
 	const API_URI = "http://127.0.0.1:3000";
 	return {
 		store: {
@@ -12,10 +12,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			}
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -56,6 +52,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					return false;
 				}
+			},
+			loginUser: async (email, password) => {
+				// Log in a user
+				const store = getStore();
+				const actions = getActions();
+
+				const userCredencial = {
+					email: email,
+					password: password
+				};
+
+				try {
+					const logUser = await fetch(`${API_URI}/login`, {
+						method: "POST",
+						body: JSON.stringify(userCredencial),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (logUser.ok) {
+						const user = await logUser.json();
+						setStore({
+							seller: {
+								...user
+							}
+						});
+					}
+				} catch (error) {}
 			},
 			getStore: store_id => {
 				//Get a Store by id

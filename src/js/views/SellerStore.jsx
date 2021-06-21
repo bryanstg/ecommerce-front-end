@@ -7,11 +7,14 @@ export const SellerStore = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const history = useHistory();
-
-	useEffect(() => {
-		actions.getStore(params.store_id);
-		actions.getProducts(params.store_id);
-	}, []);
+	if (store.seller.user.token) {
+		useEffect(() => {
+			actions.getStore(params.store_id);
+			actions.getProducts(params.store_id);
+		}, []);
+	} else {
+		history.push("/");
+	}
 
 	const activeProducts = store.seller.storeData.products.filter(product => {
 		if (product.active && product.amount_available > 0) {

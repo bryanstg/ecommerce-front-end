@@ -14,7 +14,7 @@ export const Navbar = () => {
 							</Link>
 						</li>
 						<li className="nav-item navigation__list--item">
-							<Link to="/signup" className="nav-link" href="#">
+							<Link to="/signup-buyer" className="nav-link" href="#">
 								Regístrate
 							</Link>
 						</li>
@@ -41,7 +41,7 @@ export const Navbar = () => {
 					eCommerce
 				</Link>
 				<div className="sign-bar">
-					<Link to="/signup" className={`btn signup-btn d-none d-md-inline-block`} href="#">
+					<Link to="/signup-buyer" className={`btn signup-btn d-none d-md-inline-block`} href="#">
 						Regístrate
 					</Link>
 					<Link to="/car" className="car-icon">

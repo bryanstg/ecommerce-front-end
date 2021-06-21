@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
 	return (
@@ -31,9 +32,9 @@ export const Footer = () => {
 						<h2>Para empresas</h2>
 					</li>
 					<li className="footer__section--li">
-						<a rel="" href="#">
+						<Link to="/signup-seller" rel="" href="#">
 							Registra tu negocio
-						</a>
+						</Link>
 					</li>
 					<li className="footer__section--li">
 						<a rel="" href="#">

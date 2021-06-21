@@ -35,10 +35,10 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
-						<Route exact path="/formsell">
+						<Route exact path="/signup-seller">
 							<Formsell />
 						</Route>
-						<Route exact path="/formbuy">
+						<Route exact path="/signup-buyer">
 							<Formbuy />
 						</Route>
 						<Route exact path="/:store_id">

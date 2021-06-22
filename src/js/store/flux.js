@@ -2,14 +2,19 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 	const API_URI = "http://127.0.0.1:3000";
 	return {
 		store: {
+			user: {
+				role: "",
+				token: "",
+				info: {}
+			},
 			seller: {
-				user: {},
 				categories: [],
 				storeData: {
 					info: {},
 					products: []
 				}
-			}
+			},
+			buyer: {}
 		},
 		actions: {
 			loadSomeData: () => {
@@ -64,6 +69,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				};
 
 				try {
+					//Credencials verification
 					const logUser = await fetch(`${API_URI}/login`, {
 						method: "POST",
 						body: JSON.stringify(userCredencial),
@@ -72,26 +78,62 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						}
 					});
 					if (logUser.ok) {
-						const user = await logUser.json();
+						const data = await logUser.json();
 						setStore({
-							seller: {
-								...user
+							user: {
+								token: data.jwt,
+								role: data.role,
+								info: {
+									...data.user
+								}
 							}
 						});
-					}
-				} catch (error) {}
-			},
-			getStore: store_id => {
-				//Get a Store by id
-				fetch(`${API_URI}/stores/${store_id}`)
-					.then(response => {
-						if (response.ok) {
-							return response.json();
+						localStorage.setItem("token", data.jwt);
+						localStorage.setItem("user", JSON.stringify(data.user));
+						localStorage.setItem("role", data.role);
+						if (data.role == "seller") {
+							//Seller user
+							return "seller";
+						} else if (data.role == "buyer") {
+							//Buyer user
+							return "buyer";
+						} else {
+							throw new Error("Ocurrió un error, intenta nuevamente");
 						}
-					})
-					.then(data => {
-						const store = getStore();
-						const actions = getActions();
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			logOut: () => {
+				setStore({
+					user: {
+						token: "",
+						role: "",
+						info: {}
+					}
+				});
+				localStorage.removeItem("token");
+				localStorage.removeItem("user");
+				localStorage.removeItem("role");
+			},
+			setToken: (token, user, role) => {
+				setStore({
+					user: {
+						token: token,
+						role: role,
+						info: JSON.parse(user)
+					}
+				});
+			},
+			getStore: async seller_id => {
+				try {
+					const actions = getActions();
+					const store = getStore();
+					//Get a Store by id
+					const response = await fetch(`${API_URI}/${seller_id}/store`);
+					if (response.ok) {
+						const data = await response.json();
 						setStore({
 							seller: {
 								...store.seller,
@@ -103,7 +145,14 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 								}
 							}
 						});
-					});
+					} else {
+						throw new Error("Ocurrio un error haciendo el fetch");
+					}
+					console.log(data.store.id);
+					//const products = await actions.getProducts(data.store.id);
+				} catch (error) {
+					console.log(error);
+				}
 			},
 			getProducts: store_id => {
 				fetch(`${API_URI}/stores/${store_id}/products`)

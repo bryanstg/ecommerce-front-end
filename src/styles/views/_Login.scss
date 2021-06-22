@@ -12,67 +12,71 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    width: 20.5rem;
-    height: 35.375rem;
-    padding: 1.5rem;
 
-    background: linear-gradient(0deg, rgba(100, 97, 97, 0.26), rgba(100, 97, 97, 0.26)), linear-gradient(359.03deg, #DBFA6E 25.21%, rgba(255, 255, 255, 0) 91.38%), #86FB7C;
+    width: 22rem;
+    min-height: 33rem;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    
+    background-color: #ebebeb;
     box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
+    border-radius: 22px;
 }
 .form__title {
-    text-align: center;
     width: 100%;
-    margin: 1rem 0;
+    text-align: center;
+    margin: 1.5rem 0;
+
     h2 {
         font-family: $fuente-parrafo;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.25rem;
-        line-height: 1.437rem;
-        color: #fff;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: $base-negro;
     }
 }
 .form__info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    
     width: 100%;
-    height: 70%;
+    height: 25rem;
 }
 .form__info--inputs {
-    width: 12.32rem;
-    p {
-        font-size: 0.7rem;
-        color: #FFF;
-    }
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
 }
 .input__field {
-    width: 100%;
+    width: 85%;
+    height: 2rem;
+    margin: 0.5rem 0;
     border: 0;
-    border-bottom: 2px solid #FFF;
+    border-bottom: 2px solid $base-verde ;
+    border-image: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    border-image-slice: 1;  
+    border-radius: 12px;
+    padding: 0 1rem;
+    outline: 0;
 
     font-family: $fuente-parrafo;
     font-weight: 400;
-    font-size: 1rem;
-    background: transparent;
-    outline: 0;
-
-    padding: 0.3rem 1rem;
-    color: #FFF;
+    font-size: 1.159rem;
+    background-color: #ebebeb;
 
     &::placeholder {
-        color: #FFF;
+        color: $base-gris;
+        font-weight: 400;
+        font-size: 1.15rem;
     }
 }
 .input__field:focus {
     &::placeholder {
-        font-size: 1.05rem;
-        font-weight: 500;
+        font-size: 1.159rem;
     }
 }
 .form__send {

@@ -42,7 +42,7 @@ export const Login = () => {
 					<div className="form__send">
 						<div className="form__send--button ">
 							<button
-								className="login-btn"
+								className="login-btn add-product__btn"
 								onClick={async event => {
 									event.preventDefault();
 									let verification = await actions.loginUser(email, password);

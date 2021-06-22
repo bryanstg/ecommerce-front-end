@@ -5,23 +5,28 @@ import Col from "react-bootstrap/Col";
 
 export const Formsell = () => {
 	return (
-		<div className="form-view">
+		<div className="formsell-view">
 			<div className="formsell">
-				<div className="form__title">
+				<div className="formsell__title">
 					<h2>Registrate como Vendedor</h2>
 				</div>
-				<form className="form__info" action="">
-					<div className="form__info--inputs">
-						<input type="text" className="input__field" id="password" placeholder="Nombre de la empresa" />
+				<form className="formsell__info" action="">
+					<div className="formsell__info--inputs">
 						<input
 							type="text"
-							className="input__field"
+							className="input__field__sell"
+							id="password"
+							placeholder="Nombre de la empresa"
+						/>
+						<input
+							type="text"
+							className="input__field__sell"
 							placeholder="Documento de
 							identificación de la empresa (RIF, RUC...)."
 						/>
-						<input type="tel" className="input__field" placeholder="Numero telf empresa" />
-						<input type="email" className="input__field" placeholder="Correo electrónico" />
-						<input type="password" className="input__field" placeholder="Contraseña" />
+						<input type="tel" className="input__field__sell" placeholder="Numero telf empresa" />
+						<input type="email" className="input__field__sell" placeholder="Correo electrónico" />
+						<input type="password" className="input__field__sell" placeholder="Contraseña" />
 						<div className="formsell__subtitle">
 							<p>Sector de ventas deseado:</p>
 							<Row>
@@ -44,13 +49,13 @@ export const Formsell = () => {
 							</Row>
 						</div>
 					</div>
-					<div className="form__send">
-						<Link to="/" className="form__send--button ">
+					<div className="formsell__send">
+						<Link to="/" className="formsell__send--button ">
 							<div className="formsell-btn">Ingresar</div>
 						</Link>
-						<div className="form__sign">
-							<p className="form__sign--text">¿Aún no tienes una cuenta?</p>
-							<Link to="/signup" className="form__sign--link">
+						<div className="formsell__sign">
+							<p className="formsell__sign--text">¿Aún no tienes una cuenta?</p>
+							<Link to="/signup" className="formsell__sign--link">
 								Regístrate
 							</Link>
 						</div>

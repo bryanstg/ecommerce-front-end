@@ -26,15 +26,6 @@ export const Formsell = () => {
 					<div className="formsell__info--inputs">
 						<input
 							type="text"
-							className="input__field"
-							placeholder="Nombre de la empresa"
-							value={companyName}
-							onChange={event => {
-								setCompanyName(event.target.value);
-							}}
-						/>
-						<input
-							type="text"
 							className="input__field__sell"
 							id="password"
 							placeholder="Nombre de la empresa"
@@ -46,8 +37,7 @@ export const Formsell = () => {
 						<input
 							type="text"
 							className="input__field__sell"
-							placeholder="Documento de
-							identificación de la empresa (RIF, RUC...)."
+							placeholder="Documento de la empresa (RIF, RUC...)."
 							value={identificationNumber}
 							onChange={event => {
 								setIdentificationNumber(event.target.value);

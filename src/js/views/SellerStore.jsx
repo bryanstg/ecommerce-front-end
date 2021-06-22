@@ -7,10 +7,10 @@ export const SellerStore = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const history = useHistory();
-	if (store.seller.user.token) {
+	if (store.user.token && store.user.role == "seller") {
 		useEffect(() => {
-			actions.getStore(params.store_id);
-			actions.getProducts(params.store_id);
+			actions.getStore(params.seller_id);
+			actions.getProducts(params.seller_id);
 		}, []);
 	} else {
 		history.push("/");
@@ -31,12 +31,19 @@ export const SellerStore = () => {
 		}
 	});
 
-	const outStock = store.seller.storeData.products.filter(product => product.amount_available === 0);
+	const outStock = store.seller.storeData.products.filter(product => product.amount_available == 0);
 	return (
 		<div className="store-container">
 			{store.seller.storeData.info.id ? (
 				<div className="store">
 					<h2 className="store__title">{store.seller.storeData.info.name}</h2>
+					<button
+						className="logout"
+						onClick={event => {
+							actions.logOut();
+						}}>
+						Cerrar sesión
+					</button>
 					<div className="store__info">
 						<a href="" className="store__info--box">
 							{`Total`}

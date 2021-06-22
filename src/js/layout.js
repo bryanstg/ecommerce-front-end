@@ -41,7 +41,7 @@ const Layout = () => {
 						<Route exact path="/signup-buyer">
 							<Formbuy />
 						</Route>
-						<Route exact path="/:store_id">
+						<Route exact path="/:seller_id/store">
 							<SellerStore />
 						</Route>
 						<Route exact path="/:store_id/add-product">

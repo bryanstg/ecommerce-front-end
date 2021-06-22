@@ -38,7 +38,7 @@ export const Navbar = () => {
 					<span className="navbar-toggler-icon" />
 				</button>
 				<Link to="/" className="brand-name navbar-brand" href="#">
-					eCommerce
+					LA CUADRA
 				</Link>
 				<div className="sign-bar">
 					<Link to="/signup-buyer" className={`btn signup-btn d-none d-md-inline-block`} href="#">

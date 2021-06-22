@@ -17,13 +17,13 @@ export const Formsell = () => {
 	const [password, setPassword] = useState("");
 
 	return (
-		<div className="form-view">
+		<div className="formsell-view">
 			<div className="formsell">
-				<div className="form__title">
+				<div className="formsell__title">
 					<h2>Registrate como Vendedor</h2>
 				</div>
-				<form className="form__info" action="">
-					<div className="form__info--inputs">
+				<form className="formsell__info" action="">
+					<div className="formsell__info--inputs">
 						<input
 							type="text"
 							className="input__field"
@@ -35,7 +35,17 @@ export const Formsell = () => {
 						/>
 						<input
 							type="text"
-							className="input__field"
+							className="input__field__sell"
+							id="password"
+							placeholder="Nombre de la empresa"
+							value={companyName}
+							onChange={event => {
+								setCompanyName(event.target.value);
+							}}
+						/>
+						<input
+							type="text"
+							className="input__field__sell"
 							placeholder="Documento de
 							identificación de la empresa (RIF, RUC...)."
 							value={identificationNumber}
@@ -45,7 +55,7 @@ export const Formsell = () => {
 						/>
 						<input
 							type="text"
-							className="input__field"
+							className="input__field__sell"
 							placeholder="Numero telf empresa"
 							value={cellphoneNumber}
 							onChange={event => {
@@ -54,7 +64,7 @@ export const Formsell = () => {
 						/>
 						<input
 							type="text"
-							className="input__field"
+							className="input__field__sell"
 							placeholder="Nombre de la tienda"
 							value={storeName}
 							onChange={event => {
@@ -63,7 +73,7 @@ export const Formsell = () => {
 						/>
 						<input
 							type="text"
-							className="input__field"
+							className="input__field__sell"
 							placeholder="Descripción de la tienda"
 							value={storeDescription}
 							onChange={event => {
@@ -72,7 +82,7 @@ export const Formsell = () => {
 						/>
 						<input
 							type="email"
-							className="input__field"
+							className="input__field__sell"
 							placeholder="Correo electrónico"
 							value={email}
 							onChange={event => {
@@ -81,7 +91,7 @@ export const Formsell = () => {
 						/>
 						<input
 							type="password"
-							className="input__field"
+							className="input__field__sell"
 							placeholder="Contraseña"
 							value={password}
 							onChange={event => {
@@ -110,8 +120,8 @@ export const Formsell = () => {
 							</Row>
 						</div>
 					</div>
-					<div className="form__send">
-						<Link to="/" className="form__send--button ">
+					<div className="formsell__send">
+						<Link to="/" className="formsell__send--button ">
 							<button
 								className="formsell-btn"
 								onClick={async event => {
@@ -132,7 +142,6 @@ export const Formsell = () => {
 											icon: "warning"
 										});
 									} else {
-										console.log("voy a crear el usuario");
 										success = await actions.signupSeller(
 											companyName,
 											identificationNumber,
@@ -157,9 +166,9 @@ export const Formsell = () => {
 								Registrarme
 							</button>
 						</Link>
-						<div className="form__sign">
-							<p className="form__sign--text">¿Ya tienes una cuenta?</p>
-							<Link to="/login" className="form__sign--link">
+						<div className="formsell__sign">
+							<p className="formsell__sign--text">¿Ya tienes una cuenta?</p>
+							<Link to="/login" className="formsell__sign--link">
 								Inicia sesion
 							</Link>
 						</div>

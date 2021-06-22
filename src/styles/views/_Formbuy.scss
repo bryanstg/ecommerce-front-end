@@ -3,7 +3,7 @@
 
 
 
-.form-view {
+.formbuy-view {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
     // linear-gradient(0deg, rgba(100, 97, 97, 0.26), rgba(122, 71, 71, 0.26)), linear-gradient(359.03deg, #DBFA6E 25.21%, rgba(255, 255, 255, 0) 91.38%), #86FB7C;
  
 }
-.form__title {
+.formbuy__title {
     text-align: center;
     width: 100%;
     margin: 1rem 0;
@@ -46,7 +46,7 @@
         color: rgb(0, 0, 0);
     }
 }
-.form__info {
+.formbuy__info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,7 +56,7 @@
     height: auto;
 
 }
-.form__info--inputs {
+.formbuy__info--inputs {
     width: 18.32rem;
     p {
         font-size: 0.7rem;
@@ -65,7 +65,7 @@
 
 }
 
-.input__field {
+.input__field__buy {
     width: 100%;
     border: 0;
     border-bottom: 2px solid #fff ;
@@ -87,21 +87,21 @@
         color: rgb(0, 0, 0);
     }
 }
-.input__field:focus {
+.input__field__buy:focus {
     &::placeholder {
         font-size: 1.05rem;
         font-weight: 500;
     }
 }
-.form__send {
+.formbuy__send {
     width: 12.32rem;
     height: auto;
 }
-.form__send--button > a:hover, a:visited, a:link, a:active {
+.formbuy__send--button > a:hover, a:visited, a:link, a:active {
     font-family: 'Montserrat', sans-serif;
 }
 
-.form__sign {
+.formbuy__sign {
     color: rgb(0, 0, 0);
     text-align: center;
     margin: 0;
@@ -117,7 +117,7 @@
 
 }
 
-.formsell-btn {
+.formbuy-btn {
     width: 12.32rem;
     height: 2.15rem;
     padding: 0.3rem 0.45rem 0.5rem 0.5rem;

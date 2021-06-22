@@ -1,9 +1,7 @@
 @import "../variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,100&family=Roboto:ital,wght@0,400;1,300&family=Source+Sans+Pro:wght@200&family=Staatliches&display=swap');
 
-
-
-.form-view {
+.formsell-view {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +31,7 @@
     // linear-gradient(0deg, rgba(100, 97, 97, 0.26), rgba(122, 71, 71, 0.26)), linear-gradient(359.03deg, #DBFA6E 25.21%, rgba(255, 255, 255, 0) 91.38%), #86FB7C;
  
 }
-.form__title {
+.formsell__title {
     text-align: center;
     width: 100%;
     margin: 1rem 0;
@@ -46,7 +44,7 @@
         color: rgb(0, 0, 0);
     }
 }
-.form__info {
+.formsell__info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +53,7 @@
     width: 100%;
 
 }
-.form__info--inputs {
+.formsell__info--inputs {
     width: 18.32rem;
     p {
         font-size: 0.7rem;
@@ -64,7 +62,7 @@
 
 }
 
-.input__field {
+.input__field__sell {
     width: 100%;
     border: 0;
     border-bottom: 2px solid #fff ;
@@ -86,17 +84,17 @@
         color: rgb(0, 0, 0);
     }
 }
-.input__field:focus {
+.input__field__sell:focus {
     &::placeholder {
         font-size: 1.05rem;
         font-weight: 500;
     }
 }
-.form__send {
+.formsell__send {
     width: 12.32rem;
     height: auto;
 }
-.form__send--button > a:hover, a:visited, a:link, a:active {
+.formsell__send--button > a:hover, a:visited, a:link, a:active {
     font-family: 'Montserrat', sans-serif;
 }
 .formsell__subtitle{
@@ -110,7 +108,7 @@
     }
 
 }
-.form__sign {
+.formsell__sign {
     color: rgb(0, 0, 0);
     text-align: center;
     margin: 0;

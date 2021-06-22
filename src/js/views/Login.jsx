@@ -1,7 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import swal from "sweetalert";
+import { Context } from "../store/appContext";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
+	const history = useHistory();
+	const [email, setEmail] = useState();
+	const [password, setPassword] = useState();
+
 	return (
 		<div className="form-view">
 			<div className="form">
@@ -10,14 +17,51 @@ export const Login = () => {
 				</div>
 				<form className="form__info" action="">
 					<div className="form__info--inputs">
-						<input type="email" className="input__field" id="email" placeholder="Correo electrónico" />
+						<input
+							type="email"
+							className="input__field"
+							id="email"
+							placeholder="Correo electrónico"
+							value={email}
+							onChange={event => {
+								setEmail(event.target.value);
+							}}
+						/>
 						<p>Nunca compartiremos tu correo con terceros</p>
-						<input type="password" className="input__field" id="password" placeholder="Contraseña" />
+						<input
+							type="password"
+							className="input__field"
+							id="password"
+							placeholder="Contraseña"
+							value={password}
+							onChange={event => {
+								setPassword(event.target.value);
+							}}
+						/>
 					</div>
 					<div className="form__send">
-						<Link to="/" className="form__send--button ">
-							<div className="login-btn">Ingresar</div>
-						</Link>
+						<div className="form__send--button ">
+							<button
+								className="login-btn"
+								onClick={async event => {
+									event.preventDefault();
+									let verification = await actions.loginUser(email, password);
+									console.log(verification);
+									if (verification == "seller") {
+										let sellerId = store.user.info.user_seller.id;
+										console.log(sellerId, verification);
+										history.push(`/${sellerId}/store`);
+									} else {
+										swal({
+											title: "Ocurrio un error",
+											text: "Por favor intenta nuevamente.",
+											icon: "error"
+										});
+									}
+								}}>
+								Ingresar
+							</button>
+						</div>
 						<div className="form__sign">
 							<p className="form__sign--text">¿Aún no tienes una cuenta?</p>
 							<Link to="/signup" className="form__sign--link">

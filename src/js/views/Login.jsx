@@ -46,11 +46,11 @@ export const Login = () => {
 								onClick={async event => {
 									event.preventDefault();
 									let verification = await actions.loginUser(email, password);
-									console.log(verification);
 									if (verification == "seller") {
 										let sellerId = store.user.info.user_seller.id;
-										console.log(sellerId, verification);
 										history.push(`/${sellerId}/store`);
+									} else if (verification == "buyer") {
+										history.push("/buyer-store");
 									} else {
 										swal({
 											title: "Ocurrio un error",

@@ -47,7 +47,7 @@ export const SellerStore = () => {
 					<div className="store__info">
 						<a href="" className="store__info--box">
 							{`Total`}
-							<span id="total-box">{store.seller.storeData.info.id_products.quantity}</span>
+							<span id="total-box">{store.seller.storeData.info.products.quantity}</span>
 						</a>
 						<a href="#active" className="store__info--box">
 							{`Activos`} <span id="active-box">{activeProducts.length}</span>

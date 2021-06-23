@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 			},
 			buyer: {
 				stores: [],
+				shoppingCar: [],
 				storeProducts: []
 			}
 		},
@@ -271,6 +272,27 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 							categories: [...data.categories]
 						});
 					});
+			},
+			getShoppingCar: async buyerId => {
+				try {
+					const store = getStore();
+					const actions = getActions();
+					const response = await fetch(`${API_URI}/${buyerId}/products-to-buy`);
+					if (response.ok) {
+						const data = await response.json();
+						console.log(data);
+						setStore({
+							buyer: {
+								...store.buyer,
+								shoppingCar: [...data.products_to_buy]
+							}
+						});
+					} else {
+						throw new Error("Ocurrió un error al obtener el carrito");
+					}
+				} catch (error) {
+					console.log(error);
+				}
 			}
 		}
 	};

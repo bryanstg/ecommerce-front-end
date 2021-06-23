@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import shoppingCar from "./../../img/svg/carrito-compras.png";
+import { ShoppingCar } from "./../views/ShoppingCar.jsx";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<React.Fragment>
 			<div className="pos-f-t">
@@ -44,9 +47,9 @@ export const Navbar = () => {
 					<Link to="/signup-buyer" className={`btn signup-btn d-none d-md-inline-block`} href="#">
 						Regístrate
 					</Link>
-					<Link to="/car" className="car-icon">
+					<Link to="/shopping-car" className="car-icon">
 						<img src={shoppingCar} alt="" className="car-icon__logo" />
-						<span className="car-icon__counter ">0</span>
+						<span className="car-icon__counter ">{store.buyer.shoppingCar.length}</span>
 					</Link>
 				</div>
 			</nav>

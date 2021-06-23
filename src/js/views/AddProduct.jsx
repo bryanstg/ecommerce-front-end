@@ -90,7 +90,7 @@ export const AddProduct = () => {
 							<option className="add-product__select--option" defaultValue value="">
 								Selecciona una categoría
 							</option>
-							{store.seller.categories.map((category, index) => {
+							{store.categories.map((category, index) => {
 								return (
 									<option className="add-product__select--option" value={category.id} key={index}>
 										{category.name}

@@ -7,21 +7,19 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				token: "",
 				info: {}
 			},
+			categories: [],
 			seller: {
-				categories: [],
 				storeData: {
 					info: {},
 					products: []
 				}
 			},
-			buyer: {}
+			buyer: {
+				stores: [],
+				storeProducts: []
+			}
 		},
 		actions: {
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
 			signupSeller: async (
 				companyName,
 				identificationNumber,
@@ -53,6 +51,34 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						return true;
 					} else {
 						throw new Error("Ocurrió un problema al crear");
+					}
+				} catch (error) {
+					return false;
+				}
+			},
+			signupBuyer: async (firstName, lastName, idNumber, cellphoneNumber, address, email, password) => {
+				//Sigup a new seller
+				try {
+					const create = await fetch(`${API_URI}/signup-buyer`, {
+						method: "POST",
+						body: JSON.stringify({
+							first_name: firstName,
+							last_name: lastName,
+							id_number: idNumber,
+							cellphone_number: cellphoneNumber,
+							address: address,
+							email: email,
+							password: password
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (create.ok) {
+						return true;
+					} else {
+						throw new Error("Ocurrió un problema al crear el usuario comprador");
 					}
 				} catch (error) {
 					return false;
@@ -126,7 +152,27 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 					}
 				});
 			},
-			getStore: async seller_id => {
+			getAllStores: async () => {
+				const actions = getActions();
+				const store = getStore();
+				//Get all the stores availables
+
+				try {
+					const response = await fetch(`${API_URI}/stores`);
+					if (response.ok) {
+						const data = await response.json();
+						setStore({
+							buyer: {
+								...store.buyer,
+								stores: [...data.stores]
+							}
+						});
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			getSpecificStore: async seller_id => {
 				try {
 					const actions = getActions();
 					const store = getStore();
@@ -148,8 +194,6 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 					} else {
 						throw new Error("Ocurrio un error haciendo el fetch");
 					}
-					console.log(data.store.id);
-					//const products = await actions.getProducts(data.store.id);
 				} catch (error) {
 					console.log(error);
 				}
@@ -224,10 +268,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						const store = getStore();
 
 						setStore({
-							seller: {
-								...store.seller,
-								categories: [...data.categories]
-							}
+							categories: [...data.categories]
 						});
 					});
 			}

@@ -9,7 +9,7 @@ export const SellerStore = () => {
 	const history = useHistory();
 	if (store.user.token && store.user.role == "seller") {
 		useEffect(() => {
-			actions.getStore(params.seller_id);
+			actions.getSpecificStore(params.seller_id);
 			actions.getProducts(params.seller_id);
 		}, []);
 	} else {

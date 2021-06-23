@@ -9,6 +9,7 @@ import { Login } from "./views/Login.jsx";
 import { Formsell } from "./views/formsell.jsx";
 import { Formbuy } from "./views/formbuy.jsx";
 import { SellerStore } from "./views/SellerStore.jsx";
+import { BuyerStore } from "./views/BuyerStore.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 import { ProductManagement } from "./views/ProductManagement.jsx";
 
@@ -43,6 +44,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/:seller_id/store">
 							<SellerStore />
+						</Route>
+						<Route exact path="/buyer-store">
+							<BuyerStore />
 						</Route>
 						<Route exact path="/:store_id/add-product">
 							<AddProduct />

@@ -64,7 +64,7 @@ export const Login = () => {
 						</div>
 						<div className="form__sign">
 							<p className="form__sign--text">¿Aún no tienes una cuenta?</p>
-							<Link to="/signup" className="form__sign--link">
+							<Link to="/signup-buyer" className="form__sign--link">
 								Regístrate
 							</Link>
 						</div>

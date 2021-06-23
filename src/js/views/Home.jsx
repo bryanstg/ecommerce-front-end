@@ -11,6 +11,8 @@ export const Home = () => {
 	if (store.user.token && store.user.role == "seller") {
 		const sellerId = store.user.info.user_seller.id;
 		history.push(`/${sellerId}/store`);
+	} else if (store.user.token && store.user.role == "buyer") {
+		history.push(`/buyer-store`);
 	}
 
 	return (

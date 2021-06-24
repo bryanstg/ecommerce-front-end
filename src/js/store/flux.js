@@ -259,7 +259,12 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				}
 			},
 			getCategories: () => {
-				fetch(`${API_URI}/categories`)
+				fetch(`${API_URI}/categories`, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
 					.then(response => {
 						if (response.ok) {
 							return response.json();
@@ -277,7 +282,12 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				try {
 					const store = getStore();
 					const actions = getActions();
-					const response = await fetch(`${API_URI}/${buyerId}/products-to-buy`);
+					const response = await fetch(`${API_URI}/${buyerId}/products-to-buy`, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 					if (response.ok) {
 						const data = await response.json();
 						console.log(data);
@@ -289,6 +299,46 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						});
 					} else {
 						throw new Error("Ocurrió un error al obtener el carrito");
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			updateProductToBuy: async (productId, newQuantity) => {
+				try {
+					const actions = getActions();
+					const store = getStore();
+					const quantity = { quantity: `${newQuantity}` };
+
+					console.log(quantity);
+					const update = await fetch(`${API_URI}/edit-product-to-buy/${productId}`, {
+						method: "PATCH",
+						body: JSON.stringify(quantity),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (update.ok) {
+						const car = await actions.getShoppingCar(store.user.info.user_buyer.id);
+						return true;
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			deleteProductToBuy: async productId => {
+				const store = getStore();
+				const actions = getActions();
+
+				try {
+					const toDelete = await fetch(`${API_URI}/product-to-delete/${productId}`, {
+						method: "DELETE"
+					});
+
+					if (toDelete.ok) {
+						const car = await actions.getShoppingCar(store.user.info.user_buyer.id);
+						return true;
 					}
 				} catch (error) {
 					console.log(error);

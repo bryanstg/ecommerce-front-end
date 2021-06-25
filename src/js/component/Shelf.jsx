@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Product } from "./Product.jsx";
 
 export const Shelf = ({ storeData }) => {
-	useEffect(() => {
-		const { store, actions } = useContext(Context);
-		const products = actions.getProductsbuyer(storeData.id);
-	}, []);
+	const { store, actions } = useContext(Context);
+	const [products, setProducts] = useState([]);
 
+	const getProducts = async () => {
+		const response = await actions.getProductsbuyer(storeData.id);
+		if (response) {
+			console.log(response);
+			setProducts(response.products);
+		}
+	};
+	useEffect(() => {
+		getProducts();
+	}, []);
+	console.log(storeData);
+	console.log(products);
 	return (
 		<div>
 			<h2>{storeData.name}</h2>
 			<div>{storeData.description}</div>
 			<div>{storeData.id}</div>
 			<div>
-				{store.products ? (
+				{products !== [] ? (
 					products.map(product => {
 						return <Product product={product} key={product.id} />;
 					})

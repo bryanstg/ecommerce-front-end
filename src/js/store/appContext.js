@@ -33,6 +33,7 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			state.actions.getCategories();
+			state.actions.getAllProductsActive();
 			if (localStorage.getItem("token") && localStorage.getItem("token") != "") {
 				state.actions.setToken(
 					localStorage.getItem("token"),
@@ -40,7 +41,6 @@ const injectContext = PassedComponent => {
 					localStorage.getItem("role")
 				);
 			}
-
 			setReady(true);
 		}, []);
 

@@ -2,12 +2,12 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 	const API_URI = "http://127.0.0.1:3000";
 	return {
 		store: {
+			categories: [],
 			user: {
 				role: "",
 				token: "",
 				info: {}
 			},
-			categories: [],
 			seller: {
 				storeData: {
 					info: {},
@@ -18,7 +18,8 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				stores: [],
 				shoppingCar: [],
 				storeProducts: []
-			}
+			},
+			allProducts: []
 		},
 		actions: {
 			signupSeller: async (
@@ -219,17 +220,22 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						});
 					});
 			},
-			getProductsbuyer: store_id => {
-				fetch(`${API_URI}/stores/${store_id}/products`)
-					.then(response => {
-						if (response.ok) {
-							return response.json();
-						}
-					})
-					.then(data => {
-						const store = getStore();
-						return data;
-					});
+			getAllProductsActive: async () => {
+				try {
+					const store = getStore();
+					const actions = getActions();
+					const response = await fetch(`${API_URI}/products`);
+					if (response.ok) {
+						const data = await response.json();
+						console.log(data);
+						setStore({
+							allProducts: [...data.products]
+						});
+						console.log(store.allProducts);
+					}
+				} catch (error) {
+					console.log(error);
+				}
 			},
 			createProduct: async ({
 				name,
@@ -315,6 +321,24 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 					}
 				} catch (error) {
 					console.log(error);
+				}
+			},
+			createProductToBuy: async (buyerId, quantity, productId) => {
+				const actions = getActions();
+				const store = getStore();
+				const toBuy = await fetch(`${API_URI}/add-product`, {
+					method: "POST",
+					body: JSON.stringify({
+						buyer_id: buyerId,
+						quantity: quantity,
+						product_id: productId
+					}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				if (toBuy.ok) {
+					const car = await actions.getShoppingCar(store.user.info.user_buyer.id);
 				}
 			},
 			updateProductToBuy: async (productId, newQuantity) => {

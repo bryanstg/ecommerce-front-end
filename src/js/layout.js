@@ -14,7 +14,6 @@ import { ShoppingCar } from "./views/ShoppingCar.jsx";
 import { Payment } from "./views/Payment.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 import { ProductManagement } from "./views/ProductManagement.jsx";
-import { Card } from "./views/Cards.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -31,9 +30,6 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
-						</Route>
-						<Route exact path="/Card">
-							<Card />
 						</Route>
 						<Route exact path="/car">
 							<Login />

@@ -1,31 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
-export const Card = () => {
+export const Cards = ({ product, storeId }) => {
+	const { store, actions } = useContext(Context);
+
 	return (
-		<div className="container-fluid vw-100 vh-auto">
-			<Row>
-				<div className=" shadow tarjeta">
+		<div className="">
+			<div className="">
+				<div className="shadow tarjeta">
 					<div className="sub-tarjeta">
-						<div className="shadow tarjeta__logo--img">Foto del Producto</div>
+						<img src={product.img_url} className="tarjeta__logo--img" />
 					</div>
-					<div className=" product__info--title">Mario</div>
+					<div className="product__info--title">{product.name}</div>
 
-					<div className="product__info--description">Escribiendo mucha informacio vaga</div>
-					<Link to="/login" className={`btn signup-btn`} href="#">
-						Agregar
-					</Link>
-				</div>
-			</Row>
-
-			<div className="main-view pb-3 px-2">
-				<div className="d-flex flex-column justify-content-center align-items-center">
-					<p className="call-to-action__p d-flex flex-column align-items-center">
-						<span>continúa comprando</span>
-					</p>
+					<div className="product__info--description">{product.description}</div>
+					<div
+						className={`add-btn signup-btn`}
+						onClick={async event => {
+							const buyerId = store.user.info.user_buyer.id;
+							const productId = product.id;
+							const quantity = 1; //Default quantity
+							const addToCar = await actions.createProductToBuy(buyerId, quantity, productId);
+						}}>
+						Agregar al carrito
+					</div>
 				</div>
 			</div>
 		</div>
 	);
+};
+
+Cards.propTypes = {
+	product: PropTypes.object,
+	storeId: PropTypes.string
 };

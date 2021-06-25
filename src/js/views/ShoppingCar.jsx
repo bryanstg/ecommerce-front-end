@@ -28,6 +28,9 @@ export const ShoppingCar = () => {
 							return <ProductToBuy key={productToBuy.id} productToBuy={productToBuy} />;
 						})}
 					</div>
+					<div className="car__send">
+						<button className="car__store--send-btn">Ir a pagar</button>
+					</div>
 				</div>
 			) : (
 				<Redirect to="/login" />

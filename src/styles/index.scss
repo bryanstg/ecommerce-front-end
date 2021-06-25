@@ -8,6 +8,8 @@
 @import './components/Products';
 @import './components/Product';
 @import './components/ProductToBuy';
+@import './components/Shelf';
+
 
 @import './views/Home';
 @import './views/Login';
@@ -18,7 +20,7 @@
 @import './views/ProductManagement';
 @import './views/Card';
 @import './views/shoppingCar';
-
+@import './views/BuyerStore';
 
 *, *::after, *::before {
     margin: 0;

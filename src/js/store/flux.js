@@ -226,7 +226,8 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				amountAvailable,
 				imgUrl,
 				categoryId,
-				activateProduct
+				activateProduct,
+				storeId
 			}) => {
 				const store = getStore();
 				const actions = getActions();
@@ -240,7 +241,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						img_url: imgUrl,
 						category_id: categoryId
 					};
-					const create = await fetch(`${API_URI}/stores/${store.seller.storeData.info.id}/new-product`, {
+					const create = await fetch(`${API_URI}/stores/${storeId}/new-product`, {
 						method: "POST",
 						body: JSON.stringify(newProduct),
 						headers: {

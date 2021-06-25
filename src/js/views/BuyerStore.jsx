@@ -19,6 +19,13 @@ export const BuyerStore = () => {
 	return (
 		<React.Fragment>
 			<div className="container">
+				<button
+					className="logout"
+					onClick={event => {
+						actions.logOut();
+					}}>
+					Cerrar sesión
+				</button>
 				<div>
 					{store.buyer.stores.map(store => {
 						return <Shelf storeData={store} key={store.id} />;

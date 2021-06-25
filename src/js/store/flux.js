@@ -224,7 +224,12 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				try {
 					const store = getStore();
 					const actions = getActions();
-					const response = await fetch(`${API_URI}/products`);
+					const response = await fetch(`${API_URI}/products`, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 					if (response.ok) {
 						const data = await response.json();
 						console.log(data);

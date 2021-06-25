@@ -34,5 +34,5 @@ export const Cards = ({ product, storeId }) => {
 
 Cards.propTypes = {
 	product: PropTypes.object,
-	storeId: PropTypes.string
+	storeId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };

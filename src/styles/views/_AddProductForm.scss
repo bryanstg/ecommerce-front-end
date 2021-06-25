@@ -167,3 +167,31 @@
 
     width: 100%;
 }
+input[type="file"]#upload {
+    display: none;
+}
+.custom-upload {
+    width: 12.32rem;
+    height: 2.15rem;
+    padding: 0.3rem 0.45rem 0.5rem 0.5rem;
+    margin: 1rem 0;
+
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    background-color: $base-gris;
+    color: #FFF;
+
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2rem;
+
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(164, 238, 94, 0.719);
+    }
+    
+}
+.ready {
+    background: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+}

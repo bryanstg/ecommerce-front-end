@@ -19,7 +19,7 @@
     padding: 1.5rem;
     margin: 1.5rem;
     
-    background-color: #ebebeb;
+    background-color: $fondo-blanco;
     box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 22px;
 }
@@ -66,7 +66,7 @@
     font-family: $fuente-parrafo;
     font-weight: 400;
     font-size: 1.159rem;
-    background-color: #ebebeb;
+    background-color: $fondo-blanco;
 
     &::placeholder {
         color: $base-gris;

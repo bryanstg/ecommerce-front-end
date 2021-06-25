@@ -218,6 +218,18 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						});
 					});
 			},
+			getProductsbuyer: store_id => {
+				fetch(`${API_URI}/stores/${store_id}/products`)
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+					})
+					.then(data => {
+						const store = getStore();
+						return data;
+					});
+			},
 			createProduct: async ({
 				name,
 				description,

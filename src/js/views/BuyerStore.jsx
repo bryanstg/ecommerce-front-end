@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Store } from "./../component/Store.jsx";
+import { Shelf } from "./../component/Shelf.jsx";
+import { Products } from "../component/Products.jsx";
+import PropTypes from "prop-types";
 
 export const BuyerStore = () => {
 	const { store, actions } = useContext(Context);
@@ -17,9 +19,11 @@ export const BuyerStore = () => {
 	}
 	return (
 		<div className="container">
+			<div />
 			{store.buyer.stores.map(store => {
-				return <Store storeData={store} key={store.id} />;
+				return <Shelf storeData={store} key={store.id} />;
 			})}
+			<div />
 		</div>
 	);
 };

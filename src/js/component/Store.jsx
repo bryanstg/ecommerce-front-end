@@ -12,6 +12,7 @@ export const Store = ({ storeData }) => {
 			<div>
 				<h2>{storeData.name}</h2>
 				<div>{storeData.description}</div>
+
 				<div>
 					{
 						//RIEL DE PRODUCTOS

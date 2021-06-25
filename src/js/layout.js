@@ -12,6 +12,7 @@ import { SellerStore } from "./views/SellerStore.jsx";
 import { BuyerStore } from "./views/BuyerStore.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 import { ProductManagement } from "./views/ProductManagement.jsx";
+import { Card } from "./views/Cards.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -20,7 +21,6 @@ const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
-
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
@@ -29,6 +29,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/Card">
+							<Card />
 						</Route>
 						<Route exact path="/car">
 							<Login />

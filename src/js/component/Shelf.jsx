@@ -1,41 +1,30 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Product } from "./Product.jsx";
+import PropTypes from "prop-types";
+import { Cards } from "./../views/Cards.jsx";
 
 export const Shelf = ({ storeData }) => {
 	const { store, actions } = useContext(Context);
-	const [products, setProducts] = useState([]);
 
-	const getProducts = async () => {
-		const response = await actions.getProductsbuyer(storeData.id);
-		if (response) {
-			console.log(response);
-			setProducts(response.products);
-		}
-	};
-	useEffect(() => {
-		getProducts();
-	}, []);
 	console.log(storeData);
-	console.log(products);
+	console.log(store.allProducts);
+
 	return (
-		<div>
-			<h2>{storeData.name}</h2>
-			<div>{storeData.description}</div>
-			<div>{storeData.id}</div>
-			<div>
-				{products !== [] ? (
-					products.map(product => {
-						return <Product product={product} key={product.id} />;
+		<div classNAme="store-box">
+			<h2 className="store__title">{storeData.name}</h2>
+			<div className="store__description">{storeData.description}</div>
+			<div className="store-riel">
+				{store.allProducts.length !== [] ? (
+					store.allProducts.map(product => {
+						if (product.store_id == storeData.id && product.amount_available > 0) {
+							return <Cards product={product} storeId={storeData.id} key={product.id} />;
+						}
 					})
 				) : (
 					<div className="spinner-border text-success" role="status">
 						<span className="sr-only">Loading...</span>
 					</div>
 				)}
-				;
 			</div>
 		</div>
 	);

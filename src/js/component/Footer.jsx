@@ -37,9 +37,9 @@ export const Footer = () => {
 						</Link>
 					</li>
 					<li className="footer__section--li">
-						<a rel="" href="#">
+						<Link to="/login" rel="" href="#">
 							Inicia sesión como empresa
-						</a>
+						</Link>
 					</li>
 					<li className="footer__section--li">
 						<a rel="" href="#">

@@ -45,10 +45,10 @@
     color: #FFF;
     font-weight: 600;
     border: 0;
-    background:  linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    background: rgba(49, 49, 49, 0.705);
     &:hover {
         color: #FFF;
-        background: rgba(49, 49, 49, 0.705);
+        background:  linear-gradient(50deg, $base-verde, $base-amarillo 135%);
     }
 }
 .logout {

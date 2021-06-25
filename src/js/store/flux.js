@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 			},
 			buyer: {
 				stores: [],
+				shoppingCar: [],
 				storeProducts: []
 			}
 		},
@@ -237,7 +238,8 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				amountAvailable,
 				imgUrl,
 				categoryId,
-				activateProduct
+				activateProduct,
+				storeId
 			}) => {
 				const store = getStore();
 				const actions = getActions();
@@ -251,7 +253,7 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 						img_url: imgUrl,
 						category_id: categoryId
 					};
-					const create = await fetch(`${API_URI}/stores/${store.seller.storeData.info.id}/new-product`, {
+					const create = await fetch(`${API_URI}/stores/${storeId}/new-product`, {
 						method: "POST",
 						body: JSON.stringify(newProduct),
 						headers: {
@@ -270,7 +272,12 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 				}
 			},
 			getCategories: () => {
-				fetch(`${API_URI}/categories`)
+				fetch(`${API_URI}/categories`, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
 					.then(response => {
 						if (response.ok) {
 							return response.json();
@@ -283,6 +290,72 @@ const getState = ({ getStore, getActions, setStore, setActions }) => {
 							categories: [...data.categories]
 						});
 					});
+			},
+			getShoppingCar: async buyerId => {
+				try {
+					const store = getStore();
+					const actions = getActions();
+					const response = await fetch(`${API_URI}/${buyerId}/products-to-buy`, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (response.ok) {
+						const data = await response.json();
+						console.log(data);
+						setStore({
+							buyer: {
+								...store.buyer,
+								shoppingCar: [...data.products_to_buy]
+							}
+						});
+					} else {
+						throw new Error("Ocurrió un error al obtener el carrito");
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			updateProductToBuy: async (productId, newQuantity) => {
+				try {
+					const actions = getActions();
+					const store = getStore();
+					const quantity = { quantity: `${newQuantity}` };
+
+					console.log(quantity);
+					const update = await fetch(`${API_URI}/edit-product-to-buy/${productId}`, {
+						method: "PATCH",
+						body: JSON.stringify(quantity),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (update.ok) {
+						const car = await actions.getShoppingCar(store.user.info.user_buyer.id);
+						return true;
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			deleteProductToBuy: async productId => {
+				const store = getStore();
+				const actions = getActions();
+
+				try {
+					const toDelete = await fetch(`${API_URI}/product-to-delete/${productId}`, {
+						method: "DELETE"
+					});
+
+					if (toDelete.ok) {
+						const car = await actions.getShoppingCar(store.user.info.user_buyer.id);
+						return true;
+					}
+				} catch (error) {
+					console.log(error);
+				}
 			}
 		}
 	};

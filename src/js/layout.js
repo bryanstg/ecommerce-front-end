@@ -10,6 +10,8 @@ import { Formsell } from "./views/formsell.jsx";
 import { Formbuy } from "./views/formbuy.jsx";
 import { SellerStore } from "./views/SellerStore.jsx";
 import { BuyerStore } from "./views/BuyerStore.jsx";
+import { ShoppingCar } from "./views/ShoppingCar.jsx";
+import { Payment } from "./views/Payment.jsx";
 import { AddProduct } from "./views/AddProduct.jsx";
 import { ProductManagement } from "./views/ProductManagement.jsx";
 import { Card } from "./views/Cards.jsx";
@@ -50,6 +52,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/buyer-store">
 							<BuyerStore />
+						</Route>
+						<Route exact path="/shopping-car">
+							<ShoppingCar />
+						</Route>
+						<Route exact path="/shopping-car/payment">
+							<Payment />
 						</Route>
 						<Route exact path="/:store_id/add-product">
 							<AddProduct />

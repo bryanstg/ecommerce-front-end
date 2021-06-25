@@ -13,9 +13,26 @@ export const AddProduct = () => {
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState("");
 	const [amountAvailable, setAmountAvailable] = useState("");
-	const [imgUrl, setImgUrl] = useState("");
 	const [categoryId, setCategoryId] = useState("");
 	const [activateProduct, setActivateProduct] = useState(null);
+
+	const [cloudImage, setCloudImage] = useState("");
+
+	async function postPictureCloudinary() {
+		const formData = new FormData();
+		formData.append("file", cloudImage);
+		formData.append("upload_preset", "p9yx5kaa");
+
+		const response = await fetch(`https://api.cloudinary.com/v1_1/bryancloudinary/image/upload`, {
+			method: "POST",
+			body: formData
+		});
+
+		if (response.ok) {
+			const data = await response.json();
+			return data.url;
+		}
+	}
 
 	return (
 		<div className="add-product__container">
@@ -56,7 +73,7 @@ export const AddProduct = () => {
 							}}
 						/>
 						<input
-							className="add-product__field"
+							className="add-product__field upload__product"
 							type="text"
 							id="product-amount"
 							placeholder="Cantidad disponible"
@@ -65,16 +82,17 @@ export const AddProduct = () => {
 								setAmountAvailable(event.target.value);
 							}}
 						/>
-						<input
-							className="add-product__field"
-							type="text"
-							id="prouct-img"
-							placeholder="Url de la imagen"
-							value={imgUrl}
-							onChange={event => {
-								setImgUrl(event.target.value);
-							}}
-						/>
+						<label htmlFor="upload" className={cloudImage !== "" ? "custom-upload ready" : "custom-upload"}>
+							<input
+								className="add-product__field"
+								type="file"
+								id="upload"
+								onChange={event => {
+									setCloudImage(event.target.files[0]);
+								}}
+							/>
+							{cloudImage !== "" ? "Imágen cargada" : "Agregar imágen"}
+						</label>
 					</div>
 					<div className="add-product__info--select">
 						<label className="add-product__select--label" htmlFor="categories">
@@ -135,9 +153,9 @@ export const AddProduct = () => {
 									description == "" ||
 									price == "" ||
 									amountAvailable == "" ||
-									imgUrl == "" ||
 									categoryId == "" ||
-									activateProduct == null
+									activateProduct == null ||
+									cloudImage == ""
 								) {
 									return swal(
 										"Intenta nuevamente",
@@ -145,6 +163,9 @@ export const AddProduct = () => {
 										"info"
 									);
 								} else {
+									const imgUrl = await postPictureCloudinary();
+
+									const storeId = store.seller.storeData.info.id;
 									success = await actions.createProduct({
 										name,
 										description,
@@ -152,7 +173,8 @@ export const AddProduct = () => {
 										amountAvailable,
 										imgUrl,
 										categoryId,
-										activateProduct
+										activateProduct,
+										storeId
 									});
 								}
 								if (success) {

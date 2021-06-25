@@ -67,7 +67,7 @@ export const SellerStore = () => {
 							type="button"
 							className="store__add-product--button"
 							onClick={event => {
-								history.push(`/:${params.store_id}/add-product`);
+								history.push(`/${store.seller.storeData.info.id}/add-product`);
 							}}>
 							<i className="far fa-plus-square fa-2x" />
 						</button>

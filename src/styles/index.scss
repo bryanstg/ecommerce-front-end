@@ -7,6 +7,7 @@
 @import './components/AddProductBtn';
 @import './components/Products';
 @import './components/Product';
+@import './components/ProductToBuy';
 
 @import './views/Home';
 @import './views/Login';
@@ -15,7 +16,11 @@
 @import './views/SellerStore';
 @import './views/AddProductForm';
 @import './views/ProductManagement';
+<<<<<<< HEAD
 @import './views/_Card.scss';
+=======
+@import './views/shoppingCar';
+>>>>>>> shoppingCar
 
 
 *, *::after, *::before {

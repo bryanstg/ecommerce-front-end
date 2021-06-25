@@ -8,7 +8,7 @@ export const ProductManagement = () => {
 	const params = useParams();
 
 	useEffect(() => {
-		actions.getStore(params.store_id);
+		actions.getSpecificStore(store.user.info.user_seller.id);
 		actions.getProducts(params.store_id);
 	}, []);
 

@@ -7,7 +7,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
+		"start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3500",
 		"build": "webpack --config webpack.prod.js",
 		"deploy": "node deploy-to-github.js"
 	},
@@ -77,11 +77,15 @@
 		]
 	},
 	"dependencies": {
-		"bootstrap": "^4.3.1",
+		"bootstrap": "^4.6.0",
+		"jquery": "^3.6.0",
+		"popper.js": "^1.16.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
+		"react-bootstrap": "^1.6.1",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
-		"react-router-dom": "^5.2.0"
+		"react-router-dom": "^5.2.0",
+		"sweetalert": "^2.1.2"
 	}
 }

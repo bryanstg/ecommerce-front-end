@@ -1,3 +1,33 @@
-/* 
-    General Styles
-*/
+@import './variables.scss';
+@import './components/NavBar';
+@import './components/SignUpBtn';
+@import './components/Footer';
+@import './components/Category';
+@import './components/Categories';
+@import './components/AddProductBtn';
+@import './components/Products';
+@import './components/Product';
+@import './components/ProductToBuy';
+@import './components/Shelf';
+
+
+@import './views/Home';
+@import './views/Login';
+@import './views/Formsell';
+@import './views/Formbuy';
+@import './views/SellerStore';
+@import './views/AddProductForm';
+@import './views/ProductManagement';
+@import './views/Card';
+@import './views/shoppingCar';
+@import './views/BuyerStore';
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fuente-parrafo;
+}

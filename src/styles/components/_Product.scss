@@ -1,0 +1,44 @@
+@import './../variables.scss';
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 19rem;
+    height: 10rem;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem 1rem;
+
+    background-color: #FFF;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+}
+.product__img {
+    width: 8rem;
+    height: 8rem;
+    img {
+        height: 8rem;
+        width: 100%;
+    }
+}
+.product__info {
+    width: 11rem;
+    height: 8rem;
+    padding-left: 0.5rem;
+}
+.product__info--title {
+    h4 {
+        font-size: 1rem;
+        color: $base-negro;
+        font-weight: 600;
+    }
+}
+.product__info--description {
+    font-size: 0.85rem;
+    color: $base-gris;
+}
+
+@media only screen and (min-width: 600px) {
+    
+}

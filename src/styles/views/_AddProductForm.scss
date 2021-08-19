@@ -1,0 +1,197 @@
+@import './../variables.scss';
+
+.add-product__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+    height: auto;
+}
+.add-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 25rem;
+    min-height: 35rem;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    
+    background-color: $fondo-blanco;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+    
+}
+.add-product__title {
+    width: 100%;
+    text-align: center;
+    margin: 1.5rem 0;
+
+    h2 {
+        font-family: $fuente-parrafo;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: $base-negro;
+    }
+}
+.add-product__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.add-product__info--inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+} 
+.add-product__field {
+    width: 85%;
+    height: 2rem;
+    margin: 0.5rem 0;
+    border: 0;
+    border-bottom: 2px solid $base-verde ;
+    border-image: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    border-image-slice: 1;  
+    border-radius: 12px;
+    padding: 0 1rem;
+    outline: 0;
+
+    font-family: $fuente-parrafo;
+    font-weight: 400;
+    font-size: 1.159rem;
+    background-color: $fondo-blanco;
+
+    &::placeholder {
+        color: $base-gris;
+        font-weight: 400;
+        font-size: 1.15rem;
+    }
+}
+.add-product__field:focus {
+    &::placeholder {
+        font-size: 1.159rem;
+    }
+}
+.add-product__info--select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+}
+.add-product__select {
+    width: 85%;
+    padding: 0 1rem;
+    border: 0;
+    border-bottom: 2px solid $base-verde ;
+    border-image: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    border-image-slice: 1;
+    font-family: $fuente-parrafo;
+    font-weight: 400;
+    font-size: 1.159rem;
+    background: $fondo-blanco;
+
+    color: $base-gris;
+    font-weight: 400;  
+}
+.add-product__select--option {
+    font-family: $fuente-parrafo;
+    padding: 0 1rem;
+    font-weight: 400;
+    font-size: 1.159rem;
+    background: $fondo-blanco;
+
+    color: $base-negro;
+    font-weight: 400;
+    &:hover {
+        background-color: $base-gris;
+        color: #FFF;
+        font-weight: 600;
+    }
+
+}
+.add-product__select--label {
+    width: 80%;
+    margin-bottom: 1rem;
+    font-family: $fuente-parrafo;
+    font-weight: 600;
+    color: $base_negro;
+    font-size: 1.05rem;
+}
+.add-product__info--radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+    h3 {
+        text-align: center;
+        margin: 0 1.5rem 1rem 1.5rem;
+        width: 85%;
+        color: $base-negro;
+        font-weight: 600;
+        font-size: 1.05rem;
+    }
+    label {
+        color: $base-gris;
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin: 0 0.5rem 0 1.8rem;
+
+    }
+    input {
+        background-color: $base-verde ;
+        cursor: pointer;
+        margin-right: 1.5rem;
+    }
+}
+.add-product__send {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+input[type="file"]#upload {
+    display: none;
+}
+.custom-upload {
+    width: 12.32rem;
+    height: 2.15rem;
+    padding: 0.3rem 0.45rem 0.5rem 0.5rem;
+    margin: 1rem 0;
+
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    background-color: $base-gris;
+    color: #FFF;
+
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2rem;
+
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(164, 238, 94, 0.719);
+    }
+    
+}
+.ready {
+    background: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+}

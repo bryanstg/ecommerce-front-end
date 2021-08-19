@@ -1,0 +1,59 @@
+@import './../variables.scss';
+
+.store-riel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95vw;
+
+}
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 12rem;
+    height: 18rem;
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+    background-color: rgb(255, 255, 255);
+
+}
+.sub-tarjeta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.tarjeta__logo--img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    background-color: greenyellow;
+
+}
+
+.product__info {
+    width: 9rem;
+    height: 8rem;
+    padding-left: 0.5rem;
+}
+.product__info--title {
+    h4 {
+        font-size: 1rem;
+        color: $base-negro;
+        font-weight: 600;
+    }
+}
+.product__info--description {
+    font-size: 0.85rem;
+    color: $base-gris;
+    text-align: center;
+}
+.add-btn {
+    border: 0;
+    width: 90%;
+}

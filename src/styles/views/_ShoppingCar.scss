@@ -1,0 +1,96 @@
+@import './../variables.scss';
+
+.car-container {
+    min-width: 320px;
+    width: 100%;
+    min-height: 65vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 233, 233);;
+}
+.car__welcome {
+    font-size: 1.9rem;
+    font-family: $fuente-titulos;
+    color: $base-negro;
+    text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.281);
+}
+.car__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    padding: 0 2.5rem;
+    h3 {
+        font-size: 2.15rem;
+        font-family: $fuente-titulos;
+        color: $base-negro;
+        text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.281);
+        margin-right: 1rem;
+
+        span {
+            letter-spacing: 0.1em;
+        }
+    }
+    img {
+        width: 110px;
+    }
+
+}
+.car__store {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 25vh;
+    height: auto;
+    padding: 1rem;
+    margin: 2rem 0;
+}
+.car__send {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.car__send--info {
+    font-size: 1.3rem;
+    font-family: $fuente-parrafo;
+    font-weight: 600;
+
+}
+.car__store--send-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 12rem;
+    width: 70%;
+    max-width: 28.125rem;
+    height: 3.15rem;
+    padding: 0.3rem 0.45rem 0.5rem 0.5rem;
+    margin: 1rem 0;
+
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    background-color: $base-gris;
+    color: #FFF;
+
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+        color: $base-gris
+    }
+        
+
+}

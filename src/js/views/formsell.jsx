@@ -113,7 +113,7 @@ export const Formsell = () => {
 					<div className="formsell__send">
 						<Link to="/" className="formsell__send--button ">
 							<button
-								className="formsell-btn"
+								className="login-btn add-product__btn"
 								onClick={async event => {
 									event.preventDefault();
 									let success = false;

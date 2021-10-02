@@ -26,8 +26,6 @@
     border: 2px solid #fff ;
     border-width: 5px;
     border-radius: 12px;
-    border-image:  linear-gradient(50deg, #38ef7d, rgba(0,212,255,1) 100%, #11998e); 
-    border-image-slice: 1;  
     box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
  
     // linear-gradient(0deg, rgba(100, 97, 97, 0.26), rgba(122, 71, 71, 0.26)), linear-gradient(359.03deg, #DBFA6E 25.21%, rgba(255, 255, 255, 0) 91.38%), #86FB7C;
@@ -68,10 +66,9 @@
 .input__field__buy {
     width: 100%;
     border: 0;
-    border-bottom: 2px solid #fff ;
-    border-width: 2px;
-    border-image:  linear-gradient(50deg, #38ef7d, rgba(0,212,255,1) 100%, #11998e); 
-    border-image-slice: 1;
+    border-bottom: 2px solid $base-verde ;
+    border-image: linear-gradient(50deg, $base-verde, $base-amarillo 135%);
+    border-image-slice: 1;  
 
 
     font-family: 'Montserrat', sans-serif;
@@ -125,19 +122,18 @@
 
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    background: rgb(2,0,36);
-    background:   linear-gradient(50deg, #38ef7d, rgba(0,212,255,1) 100%, #11998e); 
-    
-    color: #000000;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #ffffff;
 
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     font-size: 1rem;
     line-height: 1.2rem;
     
     &:hover {
-        background-color: rgba(255, 255, 255, 0.15) ;
-        color: $base-gris;
+        color: #FFF;
+        background:  linear-gradient(50deg, $base-verde, $base-amarillo 135%);
         font-weight: 600;
     }
 }

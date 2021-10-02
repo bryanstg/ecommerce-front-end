@@ -14,8 +14,8 @@
     align-items: center;
 
     width: 22rem;
-    min-height: 33rem;
-    height: auto;
+    min-height: 20rem;
+    height: 28rem;
     padding: 1.5rem;
     margin: 1.5rem;
     
@@ -50,6 +50,10 @@
     justify-content: center;
     width: 100%;
     height: auto;
+
+    p {
+        color: $base-gris;
+    }
 }
 .input__field {
     width: 85%;
@@ -98,4 +102,7 @@
         color: $base-gris;
         font-weight: 600;
     }
+}
+.form__sign--text {
+    color: $base-gris;
 }

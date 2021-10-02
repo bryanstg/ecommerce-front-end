@@ -27,7 +27,7 @@ export const Login = () => {
 								setEmail(event.target.value);
 							}}
 						/>
-						<p>Nunca compartiremos tu correo con terceros</p>
+						<p>Nunca compartiremos tu correo.</p>
 						<input
 							type="password"
 							className="input__field"

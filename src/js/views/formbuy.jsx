@@ -90,7 +90,7 @@ export const Formbuy = () => {
 					<div className="formbuy__send">
 						<div className="formbuy__send--button ">
 							<button
-								className="formbuy-btn"
+								className="login-btn add-product__btn"
 								onClick={async event => {
 									event.preventDefault();
 									let success = false;

@@ -25,7 +25,7 @@ export const Home = () => {
 						<span className="main-view__text--title-second">CUADRA</span>
 					</h1>
 					<p className="main-view__text--paragraph">
-						La cuadra es el market online donde puedes conseguir gran variedad de artículos consumibles y
+						El market online donde puedes conseguir gran variedad de artículos consumibles y
 						establecimientos muy cerca de ti a un excelente precio.
 					</p>
 				</div>

@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore, setActions }) => {
-	const API_URI = "http://127.0.0.1:3000";
+	const API_URI = process.env.API_URI;
 	return {
 		store: {
 			categories: [],

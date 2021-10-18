@@ -16,7 +16,7 @@ export const Home = () => {
 	}
 
 	return (
-		<div className="container-fluid vw-100 vh-auto">
+		<div className="container-fluid vh-auto">
 			<div className="main-view pb-3 px-2">
 				<div className="main-view__text">
 					<h1 className="main-view__text--title">
@@ -30,15 +30,16 @@ export const Home = () => {
 					</p>
 				</div>
 				<div className="call-to-action">
-					<Link to="/login" className={`btn signup-btn`} href="#">
+					<Link to="/signup-buyer" className={`btn signup-btn`} href="#">
 						Regístrate
 					</Link>
 					<div className="d-flex flex-column justify-content-center align-items-center">
-						<p className="call-to-action__p d-flex flex-column align-items-center">
+						{/* <p className="call-to-action__p d-flex flex-column align-items-center">
 							<span>o</span>
 							<span>continúa comprando</span>
-						</p>
+						</p> 
 						<i className="fas fa-chevron-down" />
+						*/}
 					</div>
 				</div>
 				<div className="main-view__design">

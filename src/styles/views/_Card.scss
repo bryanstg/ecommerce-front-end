@@ -1,12 +1,33 @@
 @import './../variables.scss';
 
+.store-box {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
 .store-riel {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 95vw;
-
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 80vw;
+    
+    &::-webkit-scrollbar {
+        height: 0.45rem;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: $fondo-blanco;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $secundario-azul;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: $base-verde;
+    }
 }
 .tarjeta {
     display: flex;

@@ -10,7 +10,7 @@ export const Shelf = ({ storeData }) => {
 	console.log(store.allProducts);
 
 	return (
-		<div classNAme="store-box">
+		<div className="store-box">
 			<h2 className="store__title">{storeData.name}</h2>
 			<div className="store__description">{storeData.description}</div>
 			<div className="store-riel">

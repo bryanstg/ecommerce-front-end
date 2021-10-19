@@ -37,6 +37,7 @@ export const SellerStore = () => {
 			{store.seller.storeData.info.id ? (
 				<div className="store">
 					<h2 className="store__title">{store.seller.storeData.info.name}</h2>
+					<p>{store.seller.storeData.info.description}</p>
 					<button
 						className="logout"
 						onClick={event => {

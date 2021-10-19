@@ -8,10 +8,10 @@
 .store-riel {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    width: 80vw;
+    width: 90vw;
     
     &::-webkit-scrollbar {
         height: 0.45rem;
